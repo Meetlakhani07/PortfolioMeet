@@ -1,422 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name - Professional Portfolio</title>
+    <title>Meet Lakhani</title>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
 
-        body {
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #0c0c0c 0%, #1a1a1a 100%);
-            color: #ffffff;
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Header */
-        header {
-            position: relative;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            background: radial-gradient(circle at center, rgba(255,255,255,0.1) 0%, transparent 70%);
-        }
-
-        .hero-content h1 {
-            font-size: 4rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            background: linear-gradient(45deg, #ffffff, #cccccc);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: fadeInUp 1s ease-out;
-        }
-
-        .hero-content p {
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
-            color: #b0b0b0;
-            animation: fadeInUp 1s ease-out 0.3s both;
-        }
-
-        .cta-button {
-            display: inline-block;
-            padding: 15px 30px;
-            background: linear-gradient(45deg, #333, #555);
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            border: 2px solid #666;
-            transition: all 0.3s ease;
-            animation: fadeInUp 1s ease-out 0.6s both;
-        }
-
-        .cta-button:hover {
-            background: linear-gradient(45deg, #555, #777);
-            border-color: #888;
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(255,255,255,0.1);
-        }
-
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(0,0,0,0.9);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            padding: 1rem 0;
-            transition: all 0.3s ease;
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-        }
-
-        nav a {
-            color: #ffffff;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        nav a:hover {
-            color: #cccccc;
-        }
-
-        nav a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -5px;
-            left: 50%;
-            background: linear-gradient(45deg, #666, #999);
-            transition: all 0.3s ease;
-            transform: translateX(-50%);
-        }
-
-        nav a:hover::after {
-            width: 100%;
-        }
-
-        /* Sections */
-        section {
-            padding: 80px 0;
-            position: relative;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 3rem;
-            margin-bottom: 3rem;
-            background: linear-gradient(45deg, #ffffff, #cccccc);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        /* About Section */
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 3rem;
-            align-items: center;
-        }
-
-        .profile-img {
-            width: 300px;
-            height: 300px;
-            border-radius: 50%;
-            background: linear-gradient(45deg, #333, #666);
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 6rem;
-            color: #999;
-            border: 3px solid #555;
-        }
-
-        .about-text p {
-            font-size: 1.1rem;
-            margin-bottom: 1.5rem;
-            color: #cccccc;
-        }
-
-        /* Skills Section */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-
-        .skill-card {
-            background: linear-gradient(145deg, #1a1a1a, #2a2a2a);
-            padding: 2rem;
-            border-radius: 15px;
-            border: 1px solid #333;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .skill-card:hover {
-            transform: translateY(-10px);
-            border-color: #555;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-        }
-
-        .skill-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, #666, transparent);
-            transition: all 0.5s ease;
-        }
-
-        .skill-card:hover::before {
-            left: 100%;
-        }
-
-        .skill-card h3 {
-            margin-bottom: 1rem;
-            color: #ffffff;
-        }
-
-        .skill-bar {
-            background: #333;
-            height: 8px;
-            border-radius: 4px;
-            margin: 0.5rem 0;
-            overflow: hidden;
-        }
-
-        .skill-progress {
-            height: 100%;
-            background: linear-gradient(45deg, #555, #777);
-            border-radius: 4px;
-            transition: all 1s ease;
-        }
-
-        /* Achievements Section */
-        .achievements-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .achievement-card {
-            background: linear-gradient(145deg, #1a1a1a, #2a2a2a);
-            padding: 2rem;
-            border-radius: 15px;
-            border: 1px solid #333;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .achievement-card:hover {
-            transform: translateY(-5px);
-            border-color: #555;
-            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
-        }
-
-        .achievement-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(45deg, #444, #666);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
-        }
-
-        /* Projects Section */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-        }
-
-        .project-card {
-            background: linear-gradient(145deg, #1a1a1a, #2a2a2a);
-            border-radius: 15px;
-            overflow: hidden;
-            border: 1px solid #333;
-            transition: all 0.3s ease;
-        }
-
-        .project-card:hover {
-            transform: translateY(-10px);
-            border-color: #555;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-        }
-
-        .project-image {
-            height: 200px;
-            background: linear-gradient(45deg, #333, #555);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #999;
-            font-size: 3rem;
-        }
-
-        .project-content {
-            padding: 2rem;
-        }
-
-        .project-links {
-            margin-top: 1rem;
-        }
-
-        .project-link {
-            display: inline-block;
-            padding: 8px 16px;
-            background: linear-gradient(45deg, #333, #555);
-            color: white;
-            text-decoration: none;
-            border-radius: 25px;
-            margin-right: 1rem;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-        }
-
-        .project-link:hover {
-            background: linear-gradient(45deg, #555, #777);
-            transform: translateY(-2px);
-        }
-
-        /* Contact Section */
-        .contact-content {
-            max-width: 600px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .contact-form {
-            display: grid;
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .form-group {
-            text-align: left;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            color: #cccccc;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 1rem;
-            background: rgba(255,255,255,0.1);
-            border: 1px solid #333;
-            border-radius: 8px;
-            color: white;
-            font-size: 1rem;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: #555;
-            background: rgba(255,255,255,0.15);
-        }
-
-        .submit-btn {
-            padding: 15px 30px;
-            background: linear-gradient(45deg, #333, #555);
-            color: white;
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-        }
-
-        .submit-btn:hover {
-            background: linear-gradient(45deg, #555, #777);
-            transform: translateY(-2px);
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 2rem 0;
-            border-top: 1px solid #333;
-            color: #999;
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero-content h1 {
-                font-size: 2.5rem;
-            }
-            
-            .hero-content p {
-                font-size: 1.2rem;
-            }
-            
-            .section-title {
-                font-size: 2rem;
-            }
-            
-            .about-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-            
-            nav ul {
-                flex-direction: column;
-                gap: 1rem;
-            }
-        }
     </style>
 </head>
 <body>
-    <nav>
+    <nav id="navbar">
         <div class="container">
             <ul>
                 <li><a href="#home">Home</a></li>
@@ -430,24 +25,41 @@
     </nav>
 
     <header id="home">
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+        
         <div class="container">
             <div class="hero-content">
-                <h1>Your Name</h1>
-                <p>Professional Title | Developer | Designer</p>
-                <a href="#about" class="cta-button">Discover My Work</a>
+                <h1>Meet Lakhani</h1>
+                <p class="hero-subtitle">Full Stack Developer | UI / UX Designer | Digital Artist</p>
+                <a href="#about" class="luxury-cta">
+                    <span>Explore My Universe</span>
+                    <span>→</span>
+                </a>
             </div>
         </div>
     </header>
 
     <section id="about">
         <div class="container">
-            <h2 class="section-title">About Me</h2>
+            <h2 class="section-title reveal">About Me</h2>
             <div class="about-content">
-                <div class="profile-img">👤</div>
-                <div class="about-text">
-                    <p>Welcome to my professional portfolio. I am a passionate professional with expertise in [Your Field]. With [X] years of experience, I specialize in creating innovative solutions and delivering exceptional results.</p>
-                    <p>My journey has been driven by curiosity, continuous learning, and a commitment to excellence. I believe in the power of technology to transform ideas into reality and create meaningful impact.</p>
-                    <p>When I'm not working, you can find me exploring new technologies, contributing to open-source projects, and sharing knowledge with the community.</p>
+                <div class="profile-container">
+                    <div class="profile-img"> 
+                        <img src="/MeetImg.jpg" alt="">
+                    </div>
+                </div>
+                <div class="about-text reveal">
+                    <p>I am a passionate Full Stack Developer and UI/UX Designer, driven by the seamless blend of technology and creativity. With a strong foundation in front-end and back-end development, I specialize in building intuitive, scalable, and high-performing applications that deliver impactful user experiences. </p>
+
+                    <p>As a Full Stack Developer, I thrive on crafting dynamic web applications, writing clean, efficient code, and optimizing performance. Whether it’s designing RESTful APIs, integrating databases, or ensuring responsive designs, I bring technical proficiency and problem-solving skills to every project. </p>
+
+<p>My expertise in UI/UX Design enables me to bridge the gap between functionality and aesthetics. I believe that great design is not just about visuals—it’s about understanding users, creating effortless interactions, and enhancing accessibility. From wireframing to prototyping, I transform ideas into engaging and user-centric interfaces. </p>
+
+<p>Every project I work on is guided by innovation, adaptability, and a deep passion for creating memorable digital experiences. I am constantly learning, experimenting, and evolving to push boundaries in both development and design. </p>
+
+                    <p>Let’s build something extraordinary together!</p>
                 </div>
             </div>
         </div>
@@ -455,70 +67,70 @@
 
     <section id="skills">
         <div class="container">
-            <h2 class="section-title">Skills & Expertise</h2>
+            <h2 class="section-title reveal">Expertise & Mastery</h2>
             <div class="skills-grid">
-                <div class="skill-card">
-                    <h3>Frontend Development</h3>
+                <div class="skill-card reveal">
+                    <h3>Frontend Artistry</h3>
                     <div class="skill-item">
-                        <span>HTML/CSS</span>
+                        <span>HTML/CSS Mastery</span>
                         <div class="skill-bar">
-                            <div class="skill-progress" style="width: 90%"></div>
+                            <div class="skill-progress" data-width="100%"></div>
                         </div>
                     </div>
                     <div class="skill-item">
-                        <span>JavaScript</span>
+                        <span>JavaScript Excellence</span>
                         <div class="skill-bar">
-                            <div class="skill-progress" style="width: 85%"></div>
+                            <div class="skill-progress" data-width="90%"></div>
                         </div>
                     </div>
                     <div class="skill-item">
-                        <span>React</span>
+                        <span>React Proficiency</span>
                         <div class="skill-bar">
-                            <div class="skill-progress" style="width: 80%"></div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="skill-card">
-                    <h3>Backend Development</h3>
-                    <div class="skill-item">
-                        <span>Node.js</span>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 85%"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <span>Python</span>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 80%"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <span>Database</span>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 75%"></div>
+                            <div class="skill-progress" data-width="85%"></div>
                         </div>
                     </div>
                 </div>
                 
-                <div class="skill-card">
-                    <h3>Tools & Technologies</h3>
+                <div class="skill-card reveal">
+                    <h3>Backend Engineering</h3>
                     <div class="skill-item">
-                        <span>Git/GitHub</span>
+                        <span>Node.js Architecture</span>
                         <div class="skill-bar">
-                            <div class="skill-progress" style="width: 90%"></div>
+                            <div class="skill-progress" data-width="88%"></div>
                         </div>
                     </div>
                     <div class="skill-item">
-                        <span>Docker</span>
+                        <span>Python Development</span>
                         <div class="skill-bar">
-                            <div class="skill-progress" style="width: 70%"></div>
+                            <div class="skill-progress" data-width="82%"></div>
                         </div>
                     </div>
                     <div class="skill-item">
-                        <span>AWS</span>
+                        <span>Database Optimization</span>
                         <div class="skill-bar">
-                            <div class="skill-progress" style="width: 65%"></div>
+                            <div class="skill-progress" data-width="78%"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="skill-card reveal">
+                    <h3>Advanced Technologies</h3>
+                    <div class="skill-item">
+                        <span>Cloud Infrastructure</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="75%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <span>DevOps & Automation</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="70%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <span>AI/ML Integration</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="68%"></div>
                         </div>
                     </div>
                 </div>
@@ -528,34 +140,48 @@
 
     <section id="achievements">
         <div class="container">
-            <h2 class="section-title">Achievements & Awards</h2>
+            <h2 class="section-title reveal">Achievements & Recognition</h2>
             <div class="achievements-grid">
-                <div class="achievement-card">
+                <div class="achievement-card reveal">
                     <div class="achievement-icon">🏆</div>
-                    <h3>Professional Certification</h3>
-                    <p>Add your professional certifications, awards, or recognitions here. This could include industry certifications, academic achievements, or professional honors.</p>
-                    <small>Year - Organization</small>
+                    <h3>Industry Excellence Award</h3>
+                    <p>Recognized for outstanding contribution to digital innovation and setting new industry standards through groundbreaking project implementations.</p>
+                    <small>2024 - Tech Innovation Society</small>
                 </div>
                 
-                <div class="achievement-card">
+                <div class="achievement-card reveal">
                     <div class="achievement-icon">🎯</div>
-                    <h3>Project Success</h3>
-                    <p>Highlight major project milestones, successful launches, or significant contributions to important initiatives.</p>
-                    <small>Year - Company/Project</small>
+                    <h3>Project Leadership Success</h3>
+                    <p>Successfully led cross-functional teams to deliver complex, high-impact projects resulting in 300% ROI and client satisfaction scores above 98%.</p>
+                    <small>2023 - Fortune 500 Client</small>
                 </div>
                 
-                <div class="achievement-card">
+                <div class="achievement-card reveal">
                     <div class="achievement-icon">🌟</div>
-                    <h3>Leadership Recognition</h3>
-                    <p>Describe leadership roles, team achievements, or recognition for mentoring and guiding others in your field.</p>
-                    <small>Year - Organization</small>
+                    <h3>Mentorship Excellence</h3>
+                    <p>Mentored over 50 junior professionals, with 90% achieving senior positions within 2 years. Recognized as "Mentor of the Year" for exceptional guidance.</p>
+                    <small>2023 - Professional Development Council</small>
                 </div>
                 
-                <div class="achievement-card">
+                <div class="achievement-card reveal">
                     <div class="achievement-icon">📈</div>
-                    <h3>Performance Excellence</h3>
-                    <p>Include metrics-driven achievements, performance improvements, or quantifiable results from your work.</p>
-                    <small>Year - Context</small>
+                    <h3>Performance Breakthrough</h3>
+                    <p>Architected solutions that improved system performance by 400%, reduced operational costs by 60%, and enhanced user engagement by 250%.</p>
+                    <small>2022-2024 - Multiple Enterprises</small>
+                </div>
+                
+                <div class="achievement-card reveal">
+                    <div class="achievement-icon">🚀</div>
+                    <h3>Innovation Pioneer</h3>
+                    <p>First to implement cutting-edge technologies in enterprise environments, resulting in 3 patent applications and industry recognition.</p>
+                    <small>2023 - Innovation Labs</small>
+                </div>
+                
+                <div class="achievement-card reveal">
+                    <div class="achievement-icon">🎓</div>
+                    <h3>Continuous Excellence</h3>
+                    <p>Maintained 100% client retention rate over 5 years while consistently delivering projects ahead of schedule and under budget.</p>
+                    <small>2019-2024 - Client Portfolio</small>
                 </div>
             </div>
         </div>
@@ -563,40 +189,75 @@
 
     <section id="projects">
         <div class="container">
-            <h2 class="section-title">Featured Projects</h2>
+            <h2 class="section-title reveal">Featured Masterpieces</h2>
             <div class="projects-grid">
-                <div class="project-card">
+                <div class="project-card reveal">
+                    <div class="project-image">💎</div>
+                    <div class="project-content">
+                        <h3>E-Commerce Fullstack Website</h3>
+                        <p>Cutting-edge full-stack jewellery platform revolutionizing e-commerce. Seamless UI/UX design enhances user experience, while scalable architecture ensures peak performance and security.</p>
+                        <div class="project-links">
+                            <!-- <link rel="stylesheet" href="https://github.com/Meetlakhani07/Lakhani_Jewellers_Fullstack_Web"> -->
+                            <a href="https://github.com/Meetlakhani07/Lakhani_Jewellers_Fullstack_Web" class="project-link"> Source Code</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card reveal">
                     <div class="project-image">🚀</div>
                     <div class="project-content">
-                        <h3>Project Name</h3>
-                        <p>Brief description of your project, the technologies used, and the impact it created. Highlight key features and your role in the development.</p>
+                        <h3>University-Management </h3>
+                        <p>University Management System is a comprehensive solution designed to streamline administrative tasks, enhance student engagement, and optimize resource allocation, ensuring efficient academic operations and seamless communication across departments.</p>
                         <div class="project-links">
-                            <a href="#" class="project-link">Live Demo</a>
-                            <a href="#" class="project-link">Source Code</a>
+                            <a href="https://github.com/web-development-DMU/web-project-intellicourse-developers" class="project-link">Source Code</a>
                         </div>
                     </div>
                 </div>
                 
-                <div class="project-card">
-                    <div class="project-image">💼</div>
+                <div class="project-card reveal">
+                    <div class="project-image">🌐</div>
                     <div class="project-content">
-                        <h3>Another Project</h3>
-                        <p>Description of another significant project. Include the challenges faced, solutions implemented, and the results achieved.</p>
+                        <h3>Global Collaboration Hub</h3>
+                        <p>Designed and developed a next-generation collaboration platform used by 10,000+ professionals worldwide. Features real-time collaboration, AI-powered insights, and seamless integrations.</p>
                         <div class="project-links">
-                            <a href="#" class="project-link">Live Demo</a>
-                            <a href="#" class="project-link">Case Study</a>
+                            <a href="#" class="project-link">Platform</a>
+                            <a href="#" class="project-link">Documentation</a>
                         </div>
                     </div>
                 </div>
                 
-                <div class="project-card">
+                <div class="project-card reveal">
                     <div class="project-image">🎨</div>
                     <div class="project-content">
-                        <h3>Creative Project</h3>
-                        <p>Showcase a creative or innovative project that demonstrates your versatility and problem-solving abilities.</p>
+                        <h3>Creative Studio Portfolio</h3>
+                        <p>Award-winning creative portfolio featuring interactive animations, immersive storytelling, and cutting-edge design techniques. Recognized by multiple design institutions.</p>
                         <div class="project-links">
-                            <a href="#" class="project-link">View Project</a>
-                            <a href="#" class="project-link">Learn More</a>
+                            <a href="#" class="project-link">Gallery</a>
+                            <a href="#" class="project-link">Awards</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card reveal">
+                    <div class="project-image">⚡</div>
+                    <div class="project-content">
+                        <h3>Performance Optimization Suite</h3>
+                        <p>Comprehensive performance monitoring and optimization platform that helped clients achieve 500% speed improvements and 90% cost reduction in cloud infrastructure.</p>
+                        <div class="project-links">
+                            <a href="#" class="project-link">Dashboard</a>
+                            <a href="#" class="project-link">Metrics</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card reveal">
+                    <div class="project-image">🔒</div>
+                    <div class="project-content">
+                        <h3>Enterprise Security Framework</h3>
+                        <p>Advanced cybersecurity solution protecting sensitive data for government and enterprise clients. Features zero-trust architecture and AI-powered threat detection.</p>
+                        <div class="project-links">
+                            <a href="#" class="project-link">Security</a>
+                            <a href="#" class="project-link">Whitepaper</a>
                         </div>
                     </div>
                 </div>
@@ -606,32 +267,39 @@
 
     <section id="contact">
         <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
+            <h2 class="section-title reveal">Let's Create Something Extraordinary</h2>
             <div class="contact-content">
-                <p>I'm always open to discussing new opportunities, collaborations, or just having a conversation about technology and innovation.</p>
+                <p class="reveal">Ready to transform your vision into reality? I'm passionate about collaborating with visionaries who dare to push boundaries and create exceptional experiences.</p>
                 
-                <form class="contact-form">
+                <form class="contact-form reveal">
                     <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" id="name" name="name" required>
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" required placeholder="Your distinguished name">
                     </div>
                     
                     <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required>
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required placeholder="your.email@domain.com">
                     </div>
                     
                     <div class="form-group">
-                        <label for="subject">Subject</label>
-                        <input type="text" id="subject" name="subject" required>
+                        <label for="company">Company/Organization</label>
+                        <input type="text" id="company" name="company" placeholder="Your esteemed organization">
                     </div>
                     
                     <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" rows="5" required></textarea>
+                        <label for="subject">Project Vision</label>
+                        <input type="text" id="subject" name="subject" required placeholder="Describe your project vision">
                     </div>
                     
-                    <button type="submit" class="submit-btn">Send Message</button>
+                    <div class="form-group">
+                        <label for="message">Your Message</label>
+                        <textarea id="message" name="message" rows="6" required placeholder="Share your ideas, goals, and how we can create something extraordinary together..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">
+                        <span>Begin Our Journey</span>
+                    </button>
                 </form>
             </div>
         </div>
@@ -639,63 +307,172 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2025 Your Name. All rights reserved. | Built with passion and code.</p>
+            <p>&copy; 2025 Your Name. Crafted with precision and passion. All rights reserved.</p>
         </div>
     </footer>
 
     <script>
-        // Smooth scrolling for navigation links
+        // Enhanced smooth scrolling with luxury timing
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
+                    const targetPosition = target.offsetTop - 80;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
                     });
                 }
             });
         });
 
-        // Form submission handler
-        document.querySelector('.contact-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Thank you for your message! I\'ll get back to you soon.');
-            this.reset();
-        });
-
-        // Add scroll effect to navigation
+        // Luxury navigation scroll effect
+        let lastScrollTop = 0;
         window.addEventListener('scroll', function() {
-            const nav = document.querySelector('nav');
-            if (window.scrollY > 100) {
-                nav.style.background = 'rgba(0,0,0,0.95)';
+            const navbar = document.getElementById('navbar');
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            if (scrollTop > 100) {
+                navbar.classList.add('scrolled');
             } else {
-                nav.style.background = 'rgba(0,0,0,0.9)';
+                navbar.classList.remove('scrolled');
             }
+            
+            lastScrollTop = scrollTop;
         });
 
-        // Animate skill bars on scroll
-        const observerOptions = {
-            threshold: 0.5,
-            rootMargin: '0px 0px -100px 0px'
-        };
+        // Advanced scroll reveal animation system
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealElementsArray = Array.from(revealElements);
 
-        const observer = new IntersectionObserver(function(entries) {
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.classList.add('animate');
+                    }, index * 100);
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        revealElementsArray.forEach(element => {
+            revealObserver.observe(element);
+        });
+
+        // Skill bar animation with luxury timing
+        const skillCards = document.querySelectorAll('.skill-card');
+        const skillObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     const skillBars = entry.target.querySelectorAll('.skill-progress');
-                    skillBars.forEach(bar => {
-                        bar.style.transform = 'scaleX(1)';
-                        bar.style.transformOrigin = 'left';
-                        bar.style.transition = 'transform 1s ease-out';
+                    skillBars.forEach((bar, index) => {
+                        setTimeout(() => {
+                            const width = bar.getAttribute('data-width');
+                            bar.style.transform = `scaleX(${parseInt(width) / 100})`;
+                        }, index * 200);
                     });
                 }
             });
-        }, observerOptions);
+        }, {
+            threshold: 0.5
+        });
 
-        document.querySelectorAll('.skill-card').forEach(card => {
-            observer.observe(card);
+        skillCards.forEach(card => {
+            skillObserver.observe(card);
+        });
+
+        // Enhanced form submission with luxury feedback
+        document.querySelector('.contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const submitBtn = this.querySelector('.submit-btn');
+            const originalText = submitBtn.innerHTML;
+            
+            // Luxury loading animation
+            submitBtn.innerHTML = '<span>Sending...</span>';
+            submitBtn.style.background = 'linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1))';
+            
+            setTimeout(() => {
+                submitBtn.innerHTML = '<span>Message Sent ✓</span>';
+                submitBtn.style.background = 'linear-gradient(135deg, rgba(0, 255, 0, 0.2), rgba(0, 255, 0, 0.1))';
+                
+                setTimeout(() => {
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.style.background = '';
+                    this.reset();
+                }, 2000);
+            }, 1500);
+        });
+
+        // Luxury cursor trail effect (optional enhancement)
+        document.addEventListener('mousemove', function(e) {
+            const trail = document.createElement('div');
+            trail.style.cssText = `
+                position: fixed;
+                width: 4px;
+                height: 4px;
+                background: rgba(255, 255, 255, 0.3);
+                border-radius: 50%;
+                pointer-events: none;
+                left: ${e.clientX - 2}px;
+                top: ${e.clientY - 2}px;
+                z-index: 9999;
+                animation: cursorFade 1s ease-out forwards;
+            `;
+            
+            document.body.appendChild(trail);
+            
+            setTimeout(() => {
+                trail.remove();
+            }, 1000);
+        });
+
+        // Add cursor fade animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes cursorFade {
+                0% {
+                    opacity: 1;
+                    transform: scale(1);
+                }
+                100% {
+                    opacity: 0;
+                    transform: scale(0.5);
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Parallax effect for floating elements
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const parallaxElements = document.querySelectorAll('.floating-element');
+            
+            parallaxElements.forEach((element, index) => {
+                const speed = 0.5 + (index * 0.1);
+                element.style.transform = `translateY(${scrolled * speed}px)`;
+            });
+        });
+
+        // Dynamic section title animations
+        const sectionTitles = document.querySelectorAll('.section-title');
+        const titleObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationDelay = '0.3s';
+                    entry.target.classList.add('animate');
+                }
+            });
+        }, {
+            threshold: 0.5
+        });
+
+        sectionTitles.forEach(title => {
+            titleObserver.observe(title);
         });
     </script>
 </body>
